@@ -11,6 +11,13 @@ function ClickHandler()
             easein: "easein"
         },1000);
     });
+    $("html body").scroll(function(){
+          $(this)animate({
+              scrollTop: $(slideId).offset().top,
+              duration: "slow",
+              easein: "easein"
+          },1000);
+    });
 }
 function CheckIfInView()
 {

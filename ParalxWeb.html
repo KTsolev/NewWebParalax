@@ -15,12 +15,12 @@
         <a href="#perform"><h4>Performance Aims</h4></a>
         <a href="#bind"><h4>Binding scroll and touchmove events</h4></a>
     </nav>
-    <div id="home" class="paralaxSlides slide1"></div>
+    <div id="home" class="paralaxSlides slide1"><h1>Home page</h1></div>
     <div class="subslide">
         <h1>Home page</h1>
         <p>We are a fairly small, flexible design studio that designs for print and web. We work flexibly with clients to fulfil their design needs. Whether you need to create a brand from scratch, including marketing materials and a beautiful and functional website or whether you are looking for a design refresh we are confident you will be pleased with the results.</p>
     </div>
-    <div id="list" class="paralaxSlides slide2"></div>
+    <div id="list" class="paralaxSlides slide2"><h1>List page</h1></div>
     <div class="subslide">
         <h1>List page</h1>
         <ul>
@@ -39,7 +39,7 @@
           <li>Appointment cards</li>
         </ul>
     </div>
-    <div class="paralaxSlides slide3"></div>
+    <div class="paralaxSlides slide3"><h1>Sub page</h1></div>
     <div id="sub" class="subslide">
       <h1>Sub page</h1>
       <p>Before you choose us to take on your project you will probably want to know a bit more about us, so meet the team:</p>
@@ -48,7 +48,7 @@
       <p>Rachel and Chandler are our Junior Designers. Rachel is a web designer with knowledge of HTML and CSS and supports Ross on projects. Chandler has just finished his Graphic Design degree and enjoys continuing to learn from Monica and building his experience.</p>
       <p>Joey and Phoebe focus on bringing new business to the company. They have won a number of big clients recently and both also have qualifications in project management to ensure that the projects run smoothly from start to finish.</p>
     </div>
-    <div class="paralaxSlides slide4"></div>
+    <div class="paralaxSlides slide4"><h1>Performance Aims</h1></div>
     <div id="perform" class="subslide">
       <h1>Performance Aims</h1>
       <p>Minimise DOM interactions on scroll events.
@@ -57,7 +57,7 @@
       For more complex animations, use hardware accelleration where possible.
       Mobile devices are less powerful, which can cause jerkyness when dealing with animations applied dynamically through JavaScript. When we get to dealing with the speed property, we'll look at using transform properties to enable supported mobile devices to use the more powerful GPU to perform the animations.</p>
     </div>
-    <div class="paralaxSlides slide5"></div>
+    <div class="paralaxSlides slide5"><h1>Performance Aims</h1></div>
     <div id="bind" class="subslide">
         <h1>Binding scroll and touchmove events</h1>
         <p>As touchmove events stop when your finger leaves the screen, but the browser will continue to scroll for around a second as part of the 'slowing down' easing effect. For this reason, I've decided to bind both the touchmove event and the scroll event. The bug you'll see is when you swipe past the end of the container and release your touch before the brick has hit the bottom, it overflows the container, and position: relative is only applied when the queued scroll events are fired when the scroll transition has ended.
