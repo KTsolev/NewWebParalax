@@ -2,8 +2,8 @@
 @width: 1;
 @height: 1;
 @radius: e("border-box");
-@scale:1;
-@speed:-1px;
+@scale: -0.375em;
+@speed:-0.375em;
 //e("something") returns value of the real something//
 @textAlign: e("center");
 @verticalAlign: e("midle");
@@ -13,6 +13,7 @@
 @translate: "translate3d";
 @perspective: e(@speed*(-10));
 @type: e("preserve-3d");
+@fontSize: e("1.000em");
 //==============================================================Mixins Part==============================================================//
 .overflow-mixin()
 {
@@ -52,20 +53,28 @@
     -ms-transform-style: @type;
     -ms-perspective: @perspective;
 }
+.ul-li-mixin(){
+	list-style: georgian;
+	font-size: @fontSize;
+	color: #d358f7;
+}
+.headline-mixin(@textAlign){
+  text-align: @textAlign;
+	font-size: 1.250em;
+	font-style: italic;
+	color: #990641;
+}
 //==============================================================CSS Part==============================================================//
 *{
 	padding: 0;
 	margin: 0;
-	font-size: 16px;
+	font-size: @fontSize;
 	font-family: Verdana,Serif,Arial;
+	.boxSize-mixin(@radius);
 }
 *,*::before,*::after
 {
     box-sizing: inherit;
-}
-html
-{
-    .boxSize-mixin(@radius);
 }
 body, html
 {
@@ -84,7 +93,7 @@ nav
 	position:@fixedPos;
 	height: percentage(@height - 0.9);
  	width: percentage(@width);
-	padding: 10px;
+	padding: 0.650em;
 	background-color: #0b5c75;
 	opacity: 0.8;
 	z-index: 5;
@@ -92,7 +101,7 @@ nav
 nav a
 {
 	display: block;
-	margin: 10px 30px 10px 30px;
+	margin: 2em 4em;
 	text-align: @textAlign;
 	vertical-align: @verticalAlign;
 	float: left;
@@ -108,9 +117,9 @@ nav a:hover{
 }
 .subslide{
 	display: block;
-	height: percentage(@height - 0.6);
+	height: percentage(@height - 0.40);
 	width: percentage(@width);
-	padding: 5px;
+	padding: 0.455em;
 	background-color: #0b5c75;
 	opacity: 0.8;
 	.transform-mixin(@speed,@scale);
@@ -120,26 +129,21 @@ nav a:hover{
 }
 .subslide h1,.subslide p,.subslide ul{
 	position: relative;
-	margin: 20px;
+	margin: 1.250em;
 	margin-top: 0;
-	padding: 10px;
+	padding: 0.650em;
 }
 .subslide p{
-	margin: 10px;
+	margin: 0.650em;
 	text-align: justify;
-	font-size: 16px;
+	font-size: @fontSize;
 	color: #0d0438;
 }
 .subslide ul li{
-	list-style: georgian;
-	font-size: 16px;
-	color: #d358f7;
+	.ul-li-mixin();
 }
 .subslide h1{
-  text-align: @textAlign;
-	font-size: 20px;
-	font-style: italic;
-	color: #990641;
+  .headline-mixin(@textAlign);
 }
 .paralaxSlides
 {
@@ -156,7 +160,7 @@ nav a:hover{
 .paralaxSlides h1{
 	position: @relPos;
     .transform-mixin(@speed,@scale);
-	font-size: 20px;
+	font-size: 1.250em;
 	text-align: @textAlign;
 	color: #f7f7f7;
 	top:10em;
@@ -164,7 +168,23 @@ nav a:hover{
 	height: percentage(@height);
 	z-index: 1;
 }
-
+footer{
+	width: percentage(@width);
+	height: percentage(@height - 0.4);
+	background-color: #2e2e2e;
+}
+footer h1{
+	.headline-mixin(@textAlign);
+	color: #ff751a;
+}
+footer ul li{
+	.ul-li-mixin();
+}
+footer ul{
+	margin: 1.250em 6.250em;
+	float: left;
+	clear: right;
+}
 .slide1
 {
 	background-image: url("@{prefix}bg1.jpg");
