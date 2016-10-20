@@ -51,7 +51,7 @@ nav {
 }
 nav a {
   display: block;
-  margin: 2em 4em;
+  margin: 3em 4em;
   text-align: center;
   vertical-align: midle;
   float: left;
@@ -67,7 +67,7 @@ nav a:hover {
 }
 .subslide {
   display: block;
-  height: 60%;
+  height: 65%;
   width: 100%;
   padding: 0.455em;
   background-color: #0b5c75;
@@ -95,6 +95,12 @@ nav a:hover {
   font-size: 1.000em;
   color: #0d0438;
 }
+.subslide ul {
+  margin: 2.5em;
+  list-style: georgian;
+  font-size: 1.000em;
+  color: #d358f7;
+}
 .subslide ul li {
   list-style: georgian;
   font-size: 1.000em;
@@ -102,6 +108,7 @@ nav a:hover {
 }
 .subslide h1 {
   text-align: center;
+  margin-top: 2em;
   font-size: 1.250em;
   font-style: italic;
   color: #990641;
@@ -143,18 +150,25 @@ footer {
 }
 footer h1 {
   text-align: center;
+  margin-top: 2em;
   font-size: 1.250em;
   font-style: italic;
   color: #990641;
   color: #ff751a;
 }
-footer ul li {
+#bigFoot {
+  margin-top: 0.625em;
+  margin-bottom: 0.625em;
+  width: 100%;
+  height: 50%;
+}
+#bigFoot ul li {
   list-style: georgian;
   font-size: 1.000em;
   color: #d358f7;
 }
-footer ul {
-  margin: 1.250em 6.250em;
+#bigFoot ul {
+  margin: 2.5em 6.5em;
   float: left;
   clear: right;
 }

@@ -51,4 +51,4 @@ function CheckIfInView()
       element.removeClass('in-view');
     }
   });
-}
+}	
