@@ -130,13 +130,14 @@ nav a:hover {
 }
 .paralaxSlides h1 {
   position: relative;
-  transform: translate3d(-0.375em) scale(-0.375em);
-  -webkit-transform: translate3d(-0.375em) scale(-0.375em);
-  -moz-transform: translate3d(-0.375em) scale(-0.375em);
-  -o-transform: translate3d(-0.375em) scale(-0.375em);
-  -ms-transform: translate3d(-0.375em) scale(-0.375em);
+  @speed = -200px;
+  transform: translateX(-0.375em) scale(-0.375em);
+  -webkit-transform: translateX(-0.375em) scale(-0.375em);
+  -moz-transform: translateX(-0.375em) scale(-0.375em);
+  -o-transform: translateX(-0.375em) scale(-0.375em);
+  -ms-transform: translateX(-0.375em) scale(-0.375em);
   font-size: 1.250em;
-  text-align: center;
+  text-align: left;
   color: #f7f7f7;
   top: 10em;
   width: 100%;

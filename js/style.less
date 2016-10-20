@@ -10,7 +10,8 @@
 @fixedPos: e("fixed");
 @relPos: e("relative");
 @prefix: "../images/";
-@translate: "translate3d";
+@translate3d: "translate3d";
+@translateX: "translateX";
 @perspective: e(@speed*(-10));
 @type: e("preserve-3d");
 @fontSize: e("1.000em");
@@ -31,7 +32,7 @@
     -ms-border-radius: @radius;
    //  overflow: hidden;
 }
-.transform-mixin(@speed,@scale)
+.transform-mixin(@translate,@speed,@scale)
 {
     transform: e("@{translate}(@{speed}) scale(@{scale})");
     -webkit-transform: e("@{translate}(@{speed}) scale(@{scale})");
@@ -62,7 +63,7 @@
 	text-align: @textAlign;
 	margin-top: 2em;
 	font-size: 1.250em;
-	font-style: italic;
+	font-style: italic;	
 	color: #990641;
 }
 //==============================================================CSS Part==============================================================//
@@ -123,7 +124,7 @@ nav a:hover{
 	padding: 0.455em;
 	background-color: #0b5c75;
 	opacity: 0.8;
-	.transform-mixin(@speed,@scale);
+	.transform-mixin(@translate3d,@speed,@scale);
 	position: relative;
 	background-size: cover;
 	z-index: 1;
@@ -158,15 +159,16 @@ nav a:hover{
 	background-attachment: @fixedPos;
 	background-repeat: no-repeat;
 	background-size: cover;
-    .transform-mixin(@speed,@scale);
+    .transform-mixin(@translate3d,@speed,@scale);
 	position: @relPos;
 	z-index: -1;
 }
 .paralaxSlides h1{
 	position: @relPos;
-    .transform-mixin(@speed,@scale);
+	@speed= -200px;
+    .transform-mixin(@translateX,@speed,@speed);
 	font-size: 1.250em;
-	text-align: @textAlign;
+	text-align: left;
 	color: #f7f7f7;
 	top:10em;
     width: percentage(@width);
