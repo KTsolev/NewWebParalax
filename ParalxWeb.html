@@ -1,11 +1,11 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>slider demo</title>
-    <link rel="stylesheet" type="text/css" href="./images/ParalaxWeb.css">
-    <script src="./js/ParalaxWeb.js"></script>
-    <script src="./js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="./js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="./js/ParalaxWeb.js"></script>
+    <link rel="stylesheet" type="text/css" href="./js/style.css"/>
   </head>
   <body>
     <nav>
@@ -64,7 +64,9 @@
           A solution for this problem (well, more of a workaround), is to design your parallax effects with this in mind. Consider placing an overlapping element with a higher z-index at the end point, so even if the brick overruns, it will be behind the higher element. If the overlapping element is tall enough, it should provide enough time for the scroll events to fire and position the brick relatively in the correct position.</p>
     </div>
     <script type="text/javascript">
-        $(document).ready(function(){ClickHandler();});
+        $(document).ready(function () {
+            ClickHandler();
+        });
         $(window).on('scroll resize', CheckIfInView);
     </script>
  </body>

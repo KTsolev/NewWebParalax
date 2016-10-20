@@ -1,0 +1,187 @@
+//==============================================================Variables Part==============================================================//
+@width: 1;
+@height: 1;
+@radius: e("border-box");
+@scale:1;
+@speed:-1px;
+//e("something") returns value of the real something//
+@textAlign: e("center");
+@verticalAlign: e("midle");
+@fixedPos: e("fixed");
+@relPos: e("relative");
+@prefix: "../images/";
+@translate: "translate3d";
+@perspective: e(@speed*(-10));
+@type: e("preserve-3d");
+//==============================================================Mixins Part==============================================================//
+.overflow-mixin()
+{
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+}
+.boxSize-mixin(@radius)
+{
+     border-radius: @radius;
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    -o-border-radius: @radius;	
+    -ms-border-radius: @radius;
+   //  overflow: hidden;
+}
+.transform-mixin(@speed,@scale)
+{
+    transform: e("@{translate}(@{speed}) scale(@{scale})");
+    -webkit-transform: e("@{translate}(@{speed}) scale(@{scale})");
+    -moz-transform: e("@{translate}(@{speed}) scale(@{scale})");
+    -o-transform: e("@{translate}(@{speed}) scale(@{scale})");
+    -ms-transform: e("@{translate}(@{speed}) scale(@{scale})");
+
+}
+.transformStyle-mixin(@perspective,@type)
+{
+	 transform-style: @type;
+     perspective: @perspective;
+    -webkit-transform-style: @type;
+    -webkit-perspective: @perspective;
+    -moz-transform-style: @type;
+    -moz-perspective: @perspective;
+    -o-transform-style: @type;
+    -o-perspective: @perspective;
+    -ms-transform-style: @type;
+    -ms-perspective: @perspective;
+}
+//==============================================================CSS Part==============================================================//
+*{
+	padding: 0;
+	margin: 0;
+	font-size: 16px;
+	font-family: Verdana,Serif,Arial;
+}
+*,*::before,*::after
+{
+    box-sizing: inherit;
+}
+html
+{
+    .boxSize-mixin(@radius);
+}
+body, html
+{
+	height: percentage(@height);
+	width: percentage(@height);
+    .transformStyle-mixin(@perspective,@type);
+    .boxSize-mixin(@radius);
+    .overflow-mixin();
+}
+::-webkit-scrollbar
+{
+	display: none;
+}
+nav
+{
+	position:@fixedPos;
+	height: percentage(@height - 0.9);
+ 	width: percentage(@width);
+	padding: 10px;
+	background-color: #0b5c75;
+	opacity: 0.8;
+	z-index: 5;
+}
+nav a
+{
+	display: block;
+	margin: 10px 30px 10px 30px;
+	text-align: @textAlign;
+	vertical-align: @verticalAlign;
+	float: left;
+	clear: right;
+	color: #7e75ff;
+	text-decoration: none;
+}
+img{
+	display: block;
+}
+nav a:hover{
+	color: #f8ff94;
+}
+.subslide{
+	display: block;
+	height: percentage(@height - 0.6);
+	width: percentage(@width);
+	padding: 5px;
+	background-color: #0b5c75;
+	opacity: 0.8;
+	.transform-mixin(@speed,@scale);
+	position: relative;
+	background-size: cover;
+	z-index: 1;
+}
+.subslide h1,.subslide p,.subslide ul{
+	position: relative;
+	margin: 20px;
+	margin-top: 0;
+	padding: 10px;
+}
+.subslide p{
+	margin: 10px;
+	text-align: justify;
+	font-size: 16px;
+	color: #0d0438;
+}
+.subslide ul li{
+	list-style: georgian;
+	font-size: 16px;
+	color: #d358f7;
+}
+.subslide h1{
+  text-align: @textAlign;
+	font-size: 20px;
+	font-style: italic;
+	color: #990641;
+}
+.paralaxSlides
+{
+	display: block;
+	width: percentage(@width);
+	height: percentage(@height);
+	background-attachment: @fixedPos;
+	background-repeat: no-repeat;
+	background-size: cover;
+    .transform-mixin(@speed,@scale);
+	position: @relPos;
+	z-index: -1;
+}
+.paralaxSlides h1{
+	position: @relPos;
+    .transform-mixin(@speed,@scale);
+	font-size: 20px;
+	text-align: @textAlign;
+	color: #f7f7f7;
+	top:10em;
+    width: percentage(@width);
+	height: percentage(@height);
+	z-index: 1;
+}
+
+.slide1
+{
+	background-image: url("@{prefix}bg1.jpg");
+}
+.slide2
+{
+	background-image: url("@{prefix}bg2.jpg");
+}
+.slide3
+{
+	background-image: url("@{prefix}bg3.jpg");
+}
+.slide4
+{
+	background-image: url("@{prefix}bg4.jpg");
+}
+.slide5
+{
+	background-image: url("@{prefix}bg5.jpg");
+}

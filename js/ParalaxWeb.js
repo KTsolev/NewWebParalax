@@ -12,7 +12,7 @@ function ClickHandler()
         },1000);
     });
     $("html body").scroll(function(){
-          $(this)animate({
+          $(this).animate({
               scrollTop: $(slideId).offset().top,
               duration: "slow",
               easein: "easein"
@@ -30,16 +30,16 @@ function CheckIfInView()
 
   $.each($(animation_elements), function()
   {
-    console.clear();
+    //console.clear();
     var element = $(this);
     var element_height = element.height();
     var element_top_position = element.offset().top;
     var currentOffsetTop = Math.abs(window_height - element_top_position);
     var element_bottom_position = (element_top_position + element_height);
-    console.log("element_top_position: "+element_top_position);
-    console.log("element_bottom_position: "+element_bottom_position);
-    console.log("window_top_position: "+window_top_position);
-    console.log("currentOffsetTop: "+currentOffsetTop);
+    //console.log("element_top_position: "+element_top_position);
+    //console.log("element_bottom_position: "+element_bottom_position);
+    //console.log("window_top_position: "+window_top_position);
+    //console.log("currentOffsetTop: "+currentOffsetTop);
 
     //check to see if this current container is within viewport
     if ((element_bottom_position >= currentOffsetTop) && (element_top_position <= currentOffsetTop))
