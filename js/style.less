@@ -57,7 +57,6 @@
 }
 .headline-mixin(@textAlign){
 	text-align: @textAlign;
-	margin: 32px 200px;
 	font-size: 20px;
 	font-style: italic;	
 	color: #990641;
@@ -68,14 +67,11 @@
 	margin: 0;
 	font-size: @fontSize;
 	font-family: Verdana,Serif,Arial;
-	//.boxSize-mixin(@radius);
 }
 body, html
 {
 	height: percentage(@height);
 	width: percentage(@height);
-    //.transformStyle-mixin(@perspective,@type);
-    //.boxSize-mixin(@radius);
     .overflow-mixin();
 }
 ::-webkit-scrollbar
@@ -122,7 +118,6 @@ nav a:hover{
 }
 .subslide h1,.subslide p,.subslide ul{
 	position: relative;
-	margin: 20px;
 	margin-top: 0;
 	padding: 10px;
 }
@@ -151,14 +146,14 @@ nav a:hover{
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: @relPos;
-	z-index: -1;
+	z-index: -3;
 }
 .paralaxSlides h1{
-	position: @relPos;
+	position: absolute;
 	font-size: 20px;
 	text-align: left;
 	color: #f7f7f7;
-	top:10em;
+	margin: 30% 45%;
     width: percentage(@width);
 	height: percentage(@height);
 	z-index: 2;
