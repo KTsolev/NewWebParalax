@@ -48,7 +48,13 @@
       <p>Rachel and Chandler are our Junior Designers. Rachel is a web designer with knowledge of HTML and CSS and supports Ross on projects. Chandler has just finished his Graphic Design degree and enjoys continuing to learn from Monica and building his experience.</p>
       <p>Joey and Phoebe focus on bringing new business to the company. They have won a number of big clients recently and both also have qualifications in project management to ensure that the projects run smoothly from start to finish.</p>
     </div>
-    <div class="paralaxSlides slide4"><h1>Performance Aims</h1></div>
+    <div class="paralaxSlides slide4">
+        <h1>Performance Aims</h1>
+        <img src="./images/img1.jpg" alt="portrait1" />
+        <img src="./images/img2.jpg" alt="portrait2" />
+        <img src="./images/img3.jpg" alt="portrait3" />
+        <img src="./images/img4.jpg" alt="portrait4" />
+    </div>
     <div id="perform_slide" class="subslide">
       <h1>Performance Aims</h1>
       <p>Minimise DOM interactions on scroll events.
@@ -92,7 +98,7 @@
         $(document).ready(function () {
             ClickHandler();
         });
-        $(window).on('scroll resize', CheckIfInView);
+        $(window).on('scroll resize', CheckIfInView(".paralaxSlides img"));
     </script>
  </body>
 </html>

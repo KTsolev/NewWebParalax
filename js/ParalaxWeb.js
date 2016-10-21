@@ -4,37 +4,39 @@ function ClickHandler()
      {
         e.preventDefault();
         var slideId = e.currentTarget.id;
-        var elementOffsetTop = $("#" + slideId + "_slide").offset().top;
-        var window_height = $(window).height();        
-        console.log(elementOffsetTop);
+        var menuHeight = $("nav").height();
+        var elementOffsetTop = (($("#" + slideId + "_slide").offset().top) - (menuHeight + menuHeight/4));
         $("html, body").animate({
-            scrollTop: elementOffsetTop
-        }, 800);
+            scrollTop: elementOffsetTop,            
+            duration: "slow",
+            easing: "easin"
+        });
     });
 }
-function CheckIfInView()
+function CheckIfInView(toAnimate)
 {
-  var animation_elements = $('.subslide');
+  var animationElements = $(toAnimate);
   var Swindow = $(window);
-  var window_height = $(Swindow).height();
-  var window_top_position = $(Swindow).scrollTop();
-  var window_bottom_position = (window_top_position + window_height);
-
-  $.each($(animation_elements), function()
+  var windowHeight = $(Swindow).height();
+  var windowTopPosition = $("html, body").scrollTop();
+  var windowBottomPosition = (windowTopPosition + windowHeight);
+  console.log("running!");
+  console.log(windowTopPosition);
+  $.each($(animationElements), function()
   {
     //console.clear();
     var element = $(this);
-    var element_height = element.height();
-    var element_top_position = element.offset().top;
-    var currentOffsetTop = Math.abs(window_height - element_top_position);
-    var element_bottom_position = (element_top_position + element_height);
-    //console.log("element_top_position: "+element_top_position);
-    //console.log("element_bottom_position: "+element_bottom_position);
-    //console.log("window_top_position: "+window_top_position);
+    var elementHeight = element.height();
+    var elementTopPosition = element.offset().top;
+    var currentOffsetTop = Math.abs(windowHeight - elementTopPosition);
+    var elementBottomPosition = (elementTopPosition + elementHeight);
+    //console.log("elementTopPosition: "+elementTopPosition);
+    //console.log("elementBottomPosition: "+elementBottomPosition);
+    //console.log("windowTopPosition: "+windowTopPosition);
     //console.log("currentOffsetTop: "+currentOffsetTop);
 
     //check to see if this current container is within viewport
-    if ((element_bottom_position >= currentOffsetTop) && (element_top_position <= currentOffsetTop))
+    if ((elementBottomPosition >= currentOffsetTop) && (elementTopPosition <= currentOffsetTop))
     {
       element.addClass('in-view');
     }

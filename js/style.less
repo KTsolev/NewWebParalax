@@ -156,8 +156,25 @@ nav a:hover{
 	margin: 30% 45%;
     width: percentage(@width);
 	height: percentage(@height);
-	z-index: 2;
+	z-index: 3;
 }
+.paralaxSlides img
+{
+	display: block;
+	position: @relPos;
+	width: percentage(@width - 0.8);
+	height: percentage(@height - 0.8);
+	background-attachment: @fixedPos;
+	.transform-mixin("translateX","100px",'1');
+	.transform-mixin("rotate","270deg",'1');
+	background-repeat: no-repeat;
+	margin: 2%;
+	float:left;
+	clear: right;	
+	visibility: hidden;
+	z-index: -3;
+}
+
 footer{
 	width: percentage(@width);
 	height: percentage(@height - 0.4);
