@@ -1,9 +1,9 @@
-//==============================================================Variables Part==============================================================//
+//==============================================================//Variables Part//==============================================================//
 @width: 1;
 @height: 1;
-@radius: e("border-box");
-@scale: -0.375em;
-@speed:-0.375em;
+@radius: e("content-box");
+@scale: e("1.5");
+@speed: e("5px");
 //e("something") returns value of the real something//
 @textAlign: e("center");
 @verticalAlign: e("midle");
@@ -12,25 +12,21 @@
 @prefix: "../images/";
 @translate3d: "translate3d";
 @translateX: "translateX";
-@perspective: e(@speed*(-10));
+@perspective: e(@speed);
 @type: e("preserve-3d");
-@fontSize: e("1.000em");
-//==============================================================Mixins Part==============================================================//
+@fontSize: e("16px");
+//==============================================================//Mixins Part//==============================================================//
 .overflow-mixin()
 {
     -webkit-overflow-scrolling: touch;
-    overflow-x: hidden;
-    overflow-y: auto;
-
 }
 .boxSize-mixin(@radius)
 {
-     border-radius: @radius;
-    -webkit-border-radius: @radius;
-    -moz-border-radius: @radius;
-    -o-border-radius: @radius;	
-    -ms-border-radius: @radius;
-   //  overflow: hidden;
+     box-sizing: @radius;
+    -webkit-box-sizing: @radius;
+    -moz-box-sizing: @radius;
+    -o-box-sizing: @radius;	
+    -ms-box-sizing: @radius;   
 }
 .transform-mixin(@translate,@speed,@scale)
 {
@@ -61,29 +57,25 @@
 }
 .headline-mixin(@textAlign){
 	text-align: @textAlign;
-	margin-top: 2em;
-	font-size: 1.250em;
+	margin: 32px 200px;
+	font-size: 20px;
 	font-style: italic;	
 	color: #990641;
 }
-//==============================================================CSS Part==============================================================//
+//==============================================================//CSS Part==============================================================//
 *{
 	padding: 0;
 	margin: 0;
 	font-size: @fontSize;
 	font-family: Verdana,Serif,Arial;
-	.boxSize-mixin(@radius);
-}
-*,*::before,*::after
-{
-    box-sizing: inherit;
+	//.boxSize-mixin(@radius);
 }
 body, html
 {
 	height: percentage(@height);
 	width: percentage(@height);
-    .transformStyle-mixin(@perspective,@type);
-    .boxSize-mixin(@radius);
+    //.transformStyle-mixin(@perspective,@type);
+    //.boxSize-mixin(@radius);
     .overflow-mixin();
 }
 ::-webkit-scrollbar
@@ -92,18 +84,18 @@ body, html
 }
 nav
 {
-	position:@fixedPos;
+	position: @fixedPos;
 	height: percentage(@height - 0.9);
  	width: percentage(@width);
-	padding: 0.650em;
-	background-color: #0b5c75;
+	padding: 10px;
+	background-color: #0b5c75; 
 	opacity: 0.8;
-	z-index: 5;
+	z-index: 99;
 }
 nav a
 {
 	display: block;
-	margin: 3em 4em;
+	margin: 48px 64px;
 	text-align: @textAlign;
 	vertical-align: @verticalAlign;
 	float: left;
@@ -121,28 +113,27 @@ nav a:hover{
 	display: block;
 	height: percentage(@height - 0.35);
 	width: percentage(@width);
-	padding: 0.455em;
+	padding: 5px;
 	background-color: #0b5c75;
 	opacity: 0.8;
-	.transform-mixin(@translate3d,@speed,@scale);
 	position: relative;
 	background-size: cover;
 	z-index: 1;
 }
 .subslide h1,.subslide p,.subslide ul{
 	position: relative;
-	margin: 1.250em;
+	margin: 20px;
 	margin-top: 0;
-	padding: 0.650em;
+	padding: 10px;
 }
 .subslide p{
-	margin: 0.650em;
+	margin: 10px;
 	text-align: justify;
 	font-size: @fontSize;
 	color: #0d0438;
 }
 .subslide ul {
-	margin: 2.5em;
+	margin: 40px;
 	.ul-li-mixin();
 }
 .subslide ul li{
@@ -159,21 +150,18 @@ nav a:hover{
 	background-attachment: @fixedPos;
 	background-repeat: no-repeat;
 	background-size: cover;
-    .transform-mixin(@translate3d,@speed,@scale);
 	position: @relPos;
 	z-index: -1;
 }
 .paralaxSlides h1{
 	position: @relPos;
-	@speed= -200px;
-    .transform-mixin(@translateX,@speed,@speed);
-	font-size: 1.250em;
+	font-size: 20px;
 	text-align: left;
 	color: #f7f7f7;
 	top:10em;
     width: percentage(@width);
 	height: percentage(@height);
-	z-index: 1;
+	z-index: 2;
 }
 footer{
 	width: percentage(@width);
@@ -182,11 +170,13 @@ footer{
 }
 footer h1{
 	.headline-mixin(@textAlign);
+	margin-top: 10px;
+	margin-bottom: 10px;
 	color: #ff751a;
 }
 #bigFoot{
-	margin-top: 0.625em;
-	margin-bottom: 0.625em;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	width: percentage(@width);
 	height: percentage(@height - 0.5);
 }
@@ -194,7 +184,7 @@ footer h1{
 	.ul-li-mixin();
 }
 #bigFoot ul{
-	margin: 2.5em 6.5em;
+	margin: 40px 6.5em;
 	float: left;
 	clear: right;
 }

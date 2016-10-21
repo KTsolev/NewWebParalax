@@ -1,27 +1,19 @@
 function ClickHandler()
 {
-    $("nav a").click(function(e)
+     $("nav a").click(function(e)
      {
         e.preventDefault();
-        var slideId = $(this).attr('href');
-        console.log(slideId);
-        $("html body").animate({
-            scrollTop: $(slideId).offset().top,
-            duration: "slow",
-            easein: "easein"
-        },1000);
-    });
-    $("html body").scroll(function(){
-          $(this).animate({
-              scrollTop: $(slideId).offset().top,
-              duration: "slow",
-              easein: "easein"
-          },1000);
+        var slideId = e.currentTarget.id;
+        var elementOffsetTop = $("#" + slideId + "_slide").offset().top;
+        var window_height = $(window).height();        
+        console.log(elementOffsetTop);
+        $("html, body").animate({
+            scrollTop: elementOffsetTop
+        }, 800);
     });
 }
 function CheckIfInView()
 {
-
   var animation_elements = $('.subslide');
   var Swindow = $(window);
   var window_height = $(Swindow).height();

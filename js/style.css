@@ -1,41 +1,14 @@
 * {
   padding: 0;
   margin: 0;
-  font-size: 1.000em;
+  font-size: 16px;
   font-family: Verdana,Serif,Arial;
-  border-radius: border-box;
-  -webkit-border-radius: border-box;
-  -moz-border-radius: border-box;
-  -o-border-radius: border-box;
-  -ms-border-radius: border-box;
-}
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
 }
 body,
 html {
   height: 100%;
   width: 100%;
-  transform-style: preserve-3d;
-  perspective: 3.75;
-  -webkit-transform-style: preserve-3d;
-  -webkit-perspective: 3.75;
-  -moz-transform-style: preserve-3d;
-  -moz-perspective: 3.75;
-  -o-transform-style: preserve-3d;
-  -o-perspective: 3.75;
-  -ms-transform-style: preserve-3d;
-  -ms-perspective: 3.75;
-  border-radius: border-box;
-  -webkit-border-radius: border-box;
-  -moz-border-radius: border-box;
-  -o-border-radius: border-box;
-  -ms-border-radius: border-box;
   -webkit-overflow-scrolling: touch;
-  overflow-x: hidden;
-  overflow-y: auto;
 }
 ::-webkit-scrollbar {
   display: none;
@@ -44,14 +17,14 @@ nav {
   position: fixed;
   height: 10%;
   width: 100%;
-  padding: 0.650em;
+  padding: 10px;
   background-color: #0b5c75;
   opacity: 0.8;
-  z-index: 5;
+  z-index: 99;
 }
 nav a {
   display: block;
-  margin: 3em 4em;
+  margin: 48px 64px;
   text-align: center;
   vertical-align: midle;
   float: left;
@@ -69,14 +42,9 @@ nav a:hover {
   display: block;
   height: 65%;
   width: 100%;
-  padding: 0.455em;
+  padding: 5px;
   background-color: #0b5c75;
   opacity: 0.8;
-  transform: translate3d(-0.375em) scale(-0.375em);
-  -webkit-transform: translate3d(-0.375em) scale(-0.375em);
-  -moz-transform: translate3d(-0.375em) scale(-0.375em);
-  -o-transform: translate3d(-0.375em) scale(-0.375em);
-  -ms-transform: translate3d(-0.375em) scale(-0.375em);
   position: relative;
   background-size: cover;
   z-index: 1;
@@ -85,31 +53,31 @@ nav a:hover {
 .subslide p,
 .subslide ul {
   position: relative;
-  margin: 1.250em;
+  margin: 20px;
   margin-top: 0;
-  padding: 0.650em;
+  padding: 10px;
 }
 .subslide p {
-  margin: 0.650em;
+  margin: 10px;
   text-align: justify;
-  font-size: 1.000em;
+  font-size: 16px;
   color: #0d0438;
 }
 .subslide ul {
-  margin: 2.5em;
+  margin: 40px;
   list-style: georgian;
-  font-size: 1.000em;
+  font-size: 16px;
   color: #d358f7;
 }
 .subslide ul li {
   list-style: georgian;
-  font-size: 1.000em;
+  font-size: 16px;
   color: #d358f7;
 }
 .subslide h1 {
   text-align: center;
-  margin-top: 2em;
-  font-size: 1.250em;
+  margin: 32px 200px;
+  font-size: 20px;
   font-style: italic;
   color: #990641;
 }
@@ -120,29 +88,18 @@ nav a:hover {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  transform: translate3d(-0.375em) scale(-0.375em);
-  -webkit-transform: translate3d(-0.375em) scale(-0.375em);
-  -moz-transform: translate3d(-0.375em) scale(-0.375em);
-  -o-transform: translate3d(-0.375em) scale(-0.375em);
-  -ms-transform: translate3d(-0.375em) scale(-0.375em);
   position: relative;
   z-index: -1;
 }
 .paralaxSlides h1 {
   position: relative;
-  @speed = -200px;
-  transform: translateX(-0.375em) scale(-0.375em);
-  -webkit-transform: translateX(-0.375em) scale(-0.375em);
-  -moz-transform: translateX(-0.375em) scale(-0.375em);
-  -o-transform: translateX(-0.375em) scale(-0.375em);
-  -ms-transform: translateX(-0.375em) scale(-0.375em);
-  font-size: 1.250em;
+  font-size: 20px;
   text-align: left;
   color: #f7f7f7;
   top: 10em;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 footer {
   width: 100%;
@@ -151,25 +108,27 @@ footer {
 }
 footer h1 {
   text-align: center;
-  margin-top: 2em;
-  font-size: 1.250em;
+  margin: 32px 200px;
+  font-size: 20px;
   font-style: italic;
   color: #990641;
+  margin-top: 10px;
+  margin-bottom: 10px;
   color: #ff751a;
 }
 #bigFoot {
-  margin-top: 0.625em;
-  margin-bottom: 0.625em;
+  margin-top: 10px;
+  margin-bottom: 10px;
   width: 100%;
   height: 50%;
 }
 #bigFoot ul li {
   list-style: georgian;
-  font-size: 1.000em;
+  font-size: 16px;
   color: #d358f7;
 }
 #bigFoot ul {
-  margin: 2.5em 6.5em;
+  margin: 40px 6.5em;
   float: left;
   clear: right;
 }
