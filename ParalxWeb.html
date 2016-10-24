@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>slider demo</title>
     <script type="text/javascript" src="./js/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="./js/ParalaxWeb.js"></script>
@@ -9,96 +10,61 @@
   </head>
   <body>
     <nav>
-        <a id="home" href="#home"><h4>Home</h4></a>
-        <a id="list" href="#list"><h4>List page</h4></a>
-        <a id="sub" href="#sub"><h4>Sub Page</h4></a>
-        <a id="perform" href="#perform"><h4>Performance Aims</h4></a>
-        <a id="bind" href="#bind"><h4>Binding scroll and touchmove events</h4></a>
+        <a id="begin" href="#begin"><div class="nav_div"></div></a>
+        <a id="home" href="#home"><div class="nav_div"></div></a>
+        <a id="activity" href="#activity"><div class="nav_div"></div></a>
+        <a id="certificates" href="#certificates"><div class="nav_div"></div></a>
+        <a id="gallery" href="#gallery"><div class="nav_div"></div></a>
+        <a id="contacts" href="#contacts"><div class="nav_div"></div></a>
     </nav>
-    <div  class="paralaxSlides slide1"><h1>Home page</h1></div>
-    <div id="home_slide" class="subslide">
-        <h1>Home page</h1>
-        <p>We are a fairly small, flexible design studio that designs for print and web. We work flexibly with clients to fulfil their design needs. Whether you need to create a brand from scratch, including marketing materials and a beautiful and functional website or whether you are looking for a design refresh we are confident you will be pleased with the results.</p>
+    <div id="parallax">
+    <div id="begin" class="backSlides"><h1>Рекламен</h1></div>
+    <div id="home_slide" class="frontSlides">        
+      <h1>Начало</h1>
+      <p>Практиката по денталната медицина е регистрирана през 1992г. в Софийски окръжен съд, и е вписана в регистъра на едноличните търговци като ЕТ "АИППДП Д-р Анна Кирилова - Цолева". Лечебното заведение фигурира в регистъра на Районен център по Здравеопазване - София Област и в регистъра на Български Зъболекарски Съюз. Практиката по дентална медицина се представлява от д-р Анна Кирилова - Цолева доктор по дентална медицина-специалист.</p>
+      <p>Д-р Анна Кирилова-Цолева се дипломира като Доктор по Дентална Медицина през 1984 година в "Медицинска Академия" гр. София Факултет по "Дентална Медицина". През 1992г. защитава поливалентна специалност в същия факултет. Работи като доктор по дентална медицина в "Институт по зърнени храни и изхранване на населението" и "Институт по Генно Инженерство". От 1994 година работи в собствен кабинет със самостоятелна частна практика в гр. Костинброд, област Софийска, България. Редовен член на Български Зъболекарски Съюз.</p>
+      <img src="./images/mama.jpg"/>
     </div>
-    <div class="paralaxSlides slide2"><h1>List page</h1></div>
-    <div id="list_slide" class="subslide">
-        <h1>List page</h1>
+    <div id="activity" class="backSlides">
+        <h1>Дейност</h1>
+        <p>
+          Д-р Анна Цолева работи в областта на естетичната стоматология като за изработване на бондинг обтурации и фотополимерни фасети използва съвременни материали на водещи фирми като 3M,ULTRADENT,KERR,VOCO.За ендодонтско лечение на зъби (пулпити,пeриодонтити,грануломи и радикуларни кисти) се използва системата на Protaper-Maillefer Dentsply и ултрасоник EMS.При подвижно и неподвижно протезиране се прилагат иновативни решения като се използват съвременните постижения на модерната дентална медицина.Ултразвуково почистване на зъбен камък и избелване на зъби
+        </p>
+        <div class="info">
+          <img src="./images/DSC03410.png" />
+          <p>Работа с гласфибровлакна и фотокомпозит(шиниране на парадонтозни зъби)</p>
+        </div>
+        <div class="info">
+          <img src="./images/DSC03412.png" />
+          <p>изграждане на фрактурирани зъби,изработка на малки мостове без изпиляване</p>
+        </div>
+        <div class="info">
+          <img src="./images/DSC03414.jpg" />
+          <p>Стъкловидни опори Zx27(в повечето случаи се използва вместо имплант)CAD CAM и CAPTEK система за изработване на естетични порцеланови фасети и мостови конструкции</p>
+        </div>
+      </div>
+    <div id="contacts" class="frontSlides">
         <ul>
-          <li>Branding</li>
-          <li>Logos</li>
-          <li>Websites</li>
-          <li>Web applications</li>
-          <li>Web development – HTML5, CSS, jQuery</li>
-          <li>Content Management Systems</li>
-          <li>Responsive Web Design</li>
-          <li>Illustration</li>
-          <li>Business cards</li>
-          <li>Letterheads and compliment slips</li>
-          <li>Flyers</li>
-          <li>Mailers</li>
-          <li>Appointment cards</li>
+          <li>дом.тел:</li>
+          <li>(+359)/0721/66944</li>
+          <li>кабинет.тел:</li>
+          <li>(+359)/0721/66933</li>
+          <li>GSM:</li>
+          <li>(+359)/0889 81 20 27</li>
+          <li>e-mail:</li>
+          <li>atzoleva@abv.bg</li>
+          <li>skype:</li>
+          <li>anna_tzoleva</li>
+          <li>Адрес:</li>
+          <li>гр.Костинброд ул."Христо Ботев"16</li>
         </ul>
     </div>
-    <div class="paralaxSlides slide3"><h1>Sub page</h1></div>
-    <div id="sub_slide" class="subslide">
-      <h1>Sub page</h1>
-      <p>Before you choose us to take on your project you will probably want to know a bit more about us, so meet the team:</p>
-      <p>Ross has over 10 years experience in the industry. He is our Creative Director, digital designer, web designer and front-end developer. He is also pretty good with a sketchbook. Before starting the company Ross worked as a designer and studio manager for a design house who boasted a number of big name clients. Ross has brought his vast experience from this role to the work he does now.</p>
-      <p>Monica is Ross’ sister, our Art Director and specialises in graphic and print design. She has also worked with some big names and her designs have won her a number of industry awards.</p>
-      <p>Rachel and Chandler are our Junior Designers. Rachel is a web designer with knowledge of HTML and CSS and supports Ross on projects. Chandler has just finished his Graphic Design degree and enjoys continuing to learn from Monica and building his experience.</p>
-      <p>Joey and Phoebe focus on bringing new business to the company. They have won a number of big clients recently and both also have qualifications in project management to ensure that the projects run smoothly from start to finish.</p>
-    </div>
-    <div class="paralaxSlides slide4">
-        <h1>Performance Aims</h1>
-        <img src="./images/img1.jpg" alt="portrait1" />
-        <img src="./images/img2.jpg" alt="portrait2" />
-        <img src="./images/img3.jpg" alt="portrait3" />
-        <img src="./images/img4.jpg" alt="portrait4" />
-    </div>
-    <div id="perform_slide" class="subslide">
-      <h1>Performance Aims</h1>
-      <p>Minimise DOM interactions on scroll events.
-      Ideally we should only be interacting with the parallax elements at the breakpoints (start & stop positions), so we can try to make use of CSS fixed positioning to accomplish the desired parallax effect. Obviously if we're adding a speed to the effect later on, whereby the element moves at say double the speed of scroll, we're going to need to update the position on every scroll event.
-      Another important way of reducing the DOM interactions is to store all the static values from the parallax elements straight away when the page is loaded. The parallax settings defined in the HTML of each element will not change, so we would be sacrificing performance if we were grabbing these values on every scroll event.
-      For more complex animations, use hardware accelleration where possible.
-      Mobile devices are less powerful, which can cause jerkyness when dealing with animations applied dynamically through JavaScript. When we get to dealing with the speed property, we'll look at using transform properties to enable supported mobile devices to use the more powerful GPU to perform the animations.</p>
-    </div>
-    <div class="paralaxSlides slide5"><h1>Performance Aims</h1></div>
-    <div id="bind_slide" class="subslide">        
-        <h1>Binding scroll and touchmove events</h1>
-        <p>As touchmove events stop when your finger leaves the screen, but the browser will continue to scroll for around a second as part of the 'slowing down' easing effect. For this reason, I've decided to bind both the touchmove event and the scroll event. The bug you'll see is when you swipe past the end of the container and release your touch before the brick has hit the bottom, it overflows the container, and position: relative is only applied when the queued scroll events are fired when the scroll transition has ended.
-          A solution for this problem (well, more of a workaround), is to design your parallax effects with this in mind. Consider placing an overlapping element with a higher z-index at the end point, so even if the brick overruns, it will be behind the higher element. If the overlapping element is tall enough, it should provide enough time for the scroll events to fire and position the brick relatively in the correct position.</p>
-    </div>
-    <footer>
-        <br/>
-        <h1>Footer page</h1>
-        <div id="bigFoot"> 
-          <ul>
-            <li>Branding</li>
-            <li>Logos</li>
-            <li>Websites</li>
-            <li>Web applications</li>
-          </ul>
-          <ul>
-            <li>Web development – HTML5, CSS, jQuery</li>
-            <li>Content Management Systems</li>
-            <li>Responsive Web Design</li>
-            <li>Illustration</li>
-          </ul>
-          <ul>
-            <li>Business cards</li>
-            <li>Letterheads and compliment slips</li>
-            <li>Flyers</li>
-            <li>Mailers</li>
-            <li>Appointment cards</li>
-          </ul>
-        </div>
-    </footer>
     <script type="text/javascript">
-        $(document).ready(function () {
-            ClickHandler();
+       /* $(document).ready(function(){
+          ClickHandler();
+          LoadCssFileDynamically("./js/style.css", "css") 
         });
-        $(window).on('scroll resize', CheckIfInView(".paralaxSlides img"));
+        $(window).scroll(function(){Animation(".slide4");});*/
     </script>
  </body>
 </html>
