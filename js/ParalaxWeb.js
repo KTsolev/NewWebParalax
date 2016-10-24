@@ -33,60 +33,44 @@ function ClickHandler()
 
 function Animation(toAnimate)
 {
-  var jsonObj = [];
-  var animationElements = $(toAnimate).children('img');  
-  var parent = new Node();
-  var container = $(toAnimate);
-  var menuHeight = $("nav").height();
-  parent.name = "parent";
-  parent.id = $(container).attr('id');
-  parent.class = $(container).attr('class');  
-  parent.offsetTop = $(container).offset().top;
-  parent.bottomPos = parent.offsetTop + $(container).height();
-  var currentOffset = window.pageYOffset;
-  parent.scroll = currentOffset;
-
-  if(currentOffset >= (parent.offsetTop + menuHeight) && currentOffset <= parent.bottomPos)
-  {
-      parent.isInView = true;
-      jsonObj.push({"parent" : parent});
-      for (var i = 0; i < animationElements.length; i++) 
+      var jsonObj = [];
+      var animationElements = $(toAnimate).children('img');  
+      var parent = new Node();
+      var container = $(toAnimate).parent();
+      parent.name = "parent";
+      parent.id = $(toAnimate).attr('id');
+      parent.class = $(toAnimate).attr('class');  
+      parent.offsetTop = $(container).offset().top;
+      var currentOffset = window.pageYOffset;
+      parent.scroll = currentOffset;
+      if(currentOffset < parent.offsetTop)
       {
-          var child = new Node();
-          var element = animationElements[i];
-          child.name = 'child';
-          child.id = $(element).attr('id');
-          child.class = $(element).attr('class');
-          child.offsetTop = $(element).offset().top;
-          child.bottomPos = (child.offsetTop + $(element).height());
-          child.scroll = currentOffset;
-
-          //check to see if this current container is within viewport
-          if (currentOffset >= (child.offsetTop + menuHeight) && currentOffset <= parent.bottomPos)
-          {
-            child.isInView = true;
-           // $("."+child.class).addClass(".rotate");
-            $("."+child.class).animate({
-                opacity : 1,
-                step: 0.1,
-                duration: 3000,
-                complete: function(){console.log("complete anim1");}
-            });
-            //console.log("."+child.class);
-          }
-          /*else
-          {
-            $("."+child.class).removeClass(".rotate"); 
-          } */      
-          jsonObj.push({"child" : child});
+        parent.bottomPos = parent.offsetTop + $(container).height()/2;
+        currentOffset += parent.offsetTop/4;
       }
+      if(currentOffset > parent.bottomPos)
+      {
+        parent.bottomPos = parent.offsetTop - $(container).height()/2;
+        currentOffset -= parent.offsetTop/4;
+      }
+      if(currentOffset >= parent.offsetTop && currentOffset <= parent.bottomPos)
+      {
+          parent.isInView = true;
+          jsonObj.push({"parent" : parent});
+          $(toAnimate).addClass('expandY');
+      }
+      else
+      {
+          $(toAnimate).removeClass("expandY"); 
+      }  
+
       var storage = WriteToLocalStorage(jsonObj);
       var obj = ReadFromLocalStorage(storage);
       ParseJSON(obj);
   }
   //expand objects, arrays console of chrome :D:D:D
   //$$('.console-view-object-properties-section').forEach(e => e._section._objectTreeElement.expandRecursively())
-}
+
 //Animations//
 $.fn.animateRotate = function(angle, duration, easing, complete) {
   var args = $.speed(duration, easing, complete);

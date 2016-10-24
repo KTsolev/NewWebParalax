@@ -2,7 +2,7 @@
 @width: 1;
 @height: 1;
 @radius: e("border-box");
-@speed: e("-2px");
+@speed: e("-0.75px");
 //e("something") returns value of the real something//
 @textAlign: e("center");
 @verticalAlign: e("midle");
@@ -18,6 +18,34 @@
 @type: e("preserve-3d");
 @fontSize: e("16px");
 //==============================================================//Mixins Part//==============================================================//
+@-webkit-keyframes expand
+{
+  from { height: 0; transform: rotate(0);}
+  to   { height: 60px; transform: rotate(360deg);}
+}
+@-moz-keyframes expand 
+{
+  from { height: 0; transform: rotate(0);}
+  to   { height: 60px; transform: rotate(360deg);}
+}
+@-o-keyframes expand 
+{
+  from { height: 0; transform: rotate(0);}
+  to   { height: 60px; transform: rotate(360deg);}
+}
+@keyframes expand
+{
+  from { height: 0;  transform: rotate(0);}
+  to   { height: 60px;  transform: rotate(360deg);}
+}
+
+.expandY
+{
+	animation-name:expand;
+	animation-duration:4s;
+	animation-delay:0s;
+	animation-timing-function:swing;
+}
 .overflow-mixin()
 {
     -webkit-overflow-scrolling: touch;
@@ -190,7 +218,7 @@ body
 	font-size: 18px;
 }
 
-.backSlides .info
+.info
 {
 	display:block;
 	width: percentage(@width - 0.7);
@@ -201,7 +229,7 @@ body
 	float: right;
 }	
 
-.backSlides .info p
+.info p
 {
 	display: inline-block;
 	text-align: justify;
@@ -211,7 +239,7 @@ body
 	font-size: 14px;
 }
 
-.backSlides .info img
+.info img
 {
 	display:block;
 	width: percentage(@width - 0.65);

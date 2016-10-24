@@ -1,3 +1,49 @@
+@-webkit-keyframes expand {
+  from {
+    height: 0;
+    transform: rotate(0);
+  }
+  to {
+    height: 60px;
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes expand {
+  from {
+    height: 0;
+    transform: rotate(0);
+  }
+  to {
+    height: 60px;
+    transform: rotate(360deg);
+  }
+}
+@-o-keyframes expand {
+  from {
+    height: 0;
+    transform: rotate(0);
+  }
+  to {
+    height: 60px;
+    transform: rotate(360deg);
+  }
+}
+@keyframes expand {
+  from {
+    height: 0;
+    transform: rotate(0);
+  }
+  to {
+    height: 60px;
+    transform: rotate(360deg);
+  }
+}
+.expandY {
+  animation-name: expand;
+  animation-duration: 4s;
+  animation-delay: 0s;
+  animation-timing-function: swing;
+}
 * {
   padding: 0;
   margin: 0;
@@ -20,11 +66,11 @@ body {
   -moz-box-sizing: border-box;
   -o-box-sizing: border-box;
   -ms-box-sizing: border-box;
-  perspective: -2px;
-  -webkit-perspective: -2px;
-  -moz-perspective: -2px;
-  -o-perspective: -2px;
-  -ms-perspective: -2px;
+  perspective: -0.75px;
+  -webkit-perspective: -0.75px;
+  -moz-perspective: -0.75px;
+  -o-perspective: -0.75px;
+  -ms-perspective: -0.75px;
 }
 *,
 *::before,
@@ -77,11 +123,11 @@ body {
   height: 90vh;
   width: 100vw;
   border: 1px groove #fff;
-  transform: translateZ(-2px),scale(2.5);
-  -webkit-transform: translateZ(-2px),scale(2.5);
-  -moz-transform: translateZ(-2px),scale(2.5);
-  -o-transform: translateZ(-2px),scale(2.5);
-  -ms-transform: translateZ(-2px),scale(2.5);
+  transform: translateZ(-0.75px),scale(2.5);
+  -webkit-transform: translateZ(-0.75px),scale(2.5);
+  -moz-transform: translateZ(-0.75px),scale(2.5);
+  -o-transform: translateZ(-0.75px),scale(2.5);
+  -ms-transform: translateZ(-0.75px),scale(2.5);
 }
 .frontSlides p,
 .backSlides p {
@@ -101,7 +147,7 @@ body {
   margin: 20px;
   font-size: 18px;
 }
-.backSlides .info {
+.info {
   display: block;
   width: 30%;
   height: 40%;
@@ -110,7 +156,7 @@ body {
   clear: left;
   float: right;
 }
-.backSlides .info p {
+.info p {
   display: inline-block;
   text-align: justify;
   vertical-align: middle;
@@ -118,7 +164,7 @@ body {
   margin: 10px;
   font-size: 14px;
 }
-.backSlides .info img {
+.info img {
   display: block;
   width: 35%;
   height: 35%;
