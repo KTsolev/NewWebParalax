@@ -1,0 +1,360 @@
+//==============================================================//Variables Part//==============================================================//
+$width: 1;
+$height: 1;
+$radius: "border-box";
+$speed: "-0.75px";
+//e("something") returns value of the real something//
+$textAlign: "center";
+$verticalAlign: "midle";
+$fixedpos: "fixed";
+$relpos: "relative";
+$prefix: "../images/";
+$translate3d: "translate3d";
+$translateX: "translateX";
+$translateY: "translateY";
+$translateZ: "translateZ";
+$scale: 2.5;
+$px: $speed;
+$type: "preserve-3d";
+$fontSize: "16px";
+//==============================================================//Mixins Part//==============================================================//
+@mixin animation-mixin($name, $from,$to,$property) 
+{   
+      $str1: "";
+      $str2: "";
+      @if(length($property) >= 2 and length($from) >= 2 and length($to) >= 2 )
+      {
+           $str1 :"{ from { #{nth($property,1)}: #{nth($from,1)}; #{nth($property,2)}(#{nth($from,2)});}";        
+           $str2 :" to { #{nth($property,1)}: #{nth($to,1)}; #{nth($property,2)}(#{nth($to,2)});}}";
+      }
+      @else
+      {
+           $str1 :"{ from { #{$property}(#{$from}); }";        
+           $str2 :" to { #{$property}(#{$to}); }}";
+      }
+      @-webkit-keyframes #{$name} #{unquote($str1 + $str2)}
+      @-moz-keyframes #{$name} #{unquote($str1 + $str2)}
+      @-o-keyframes #{$name} #{unquote($str1 + $str2)}
+      @-ms-keyframes #{$name} #{unquote($str1 + $str2)}
+      @keyframes #{$name} #{unquote($str1 + $str2)}
+}
+
+@mixin overflow-mixin()
+{
+    -webkit-overflow-scrolling: touch;
+}
+
+@mixin boxSize-mixin($radius)
+{
+     box-sizing: #{$radius};
+    -webkit-box-sizing: #{$radius};
+    -moz-box-sizing: #{$radius};
+    -o-box-sizing: #{$radius};	
+    -ms-box-sizing: #{$radius};   
+}
+
+@mixin transform-scale-mixin($translate,$speed,$scale)
+{ 
+    @if(type-of($scale) == number)
+    {
+        transform: unquote("#{$translate}(#{$speed}),scale(#{$scale})");
+       -webkit-transform:unquote("#{$translate}(#{$speed}),scale(#{$scale})");
+       -moz-transform: unquote("#{$translate}(#{$speed}),scale(#{$scale})");
+       -o-transform: unquote("#{$translate}(#{$speed}),scale(#{$scale})");
+       -ms-transform: unquote("#{$translate}(#{$speed}),scale(#{$scale})");	    
+    }
+    @else
+    {
+        transform: unquote("#{$translate}(#{$speed})");
+       -webkit-transform:unquote("#{$translate}(#{$speed})");
+       -moz-transform: unquote("#{$translate}(#{$speed})");
+       -o-transform: unquote("#{$translate}(#{$speed})");
+       -ms-transform: unquote("#{$translate}(#{$speed})");	    
+    }
+   
+}
+
+@mixin transformStyle-mixin($px,$type)
+{
+	 transform-style: #{$type};
+    -webkit-transform-style: #{$type};
+    -moz-transform-style: #{$type};
+    -o-transform-style: #{$type};
+    -ms-transform-style: #{$type};
+}
+
+@mixin perspective-mixin($px)
+{
+	perspective: #{$px};
+   -webkit-perspective: #{$px};
+   -moz-perspective: #{$px};
+   -o-perspective: #{$px};
+   -ms-perspective: #{$px};
+}
+
+@mixin ul-li-mixin()
+{
+	list-style: none;
+	font-size: #{$fontSize};
+	color: #d358f7;
+}
+
+@mixin headline-mixin($textAlign)
+{
+	text-align: #{$textAlign};
+	font-size: 20px;
+	font-style: italic;	
+	color: #990641;
+}
+//==============================================================//CSS Part//=============================================================//
+*
+{
+	padding: 0;
+	margin: 0;
+	font-size: #{$fontSize};
+	font-family: Verdana,Serif,Arial;
+}
+
+html
+{
+   @include boxSize-mixin($radius);
+}
+
+body
+{
+	height: 2700px;
+	width: 100%;
+    box-sizing: border-box;
+    -webkit-overflow-scrolling: touch;
+    @include boxSize-mixin($radius);
+    @include perspective-mixin($px);
+}
+
+*, *::before, *::after
+{
+	box-sizing: inherit;
+}
+
+::-webkit-scrollbar
+{
+	display: none;
+}
+    
+@view-port
+{
+	zoom:1.0;
+	width: extend-to-zoom;
+}
+
+@-ms-view-port
+{
+	zoom:1.0;
+	width: extend-to-zoom;
+}
+
+@media(max-width:960px)
+{
+	.container
+	{
+		width: auto;
+	}
+}
+
+$name: "expand";
+$whatToAnimate: "height", "transform: rotate";
+$from: 0, 0;
+$to: "60px","360deg";
+@include animation-mixin($name,$from,$to,$whatToAnimate);
+.expandY
+{
+	animation-name:expand;
+	animation-duration:4s;
+	animation-delay:0s;
+	animation-timing-function:ease-in-out;
+}
+
+$name1: "translateX_P";
+$whatToAnimate1: "transform: translate3d";
+$from1: 0;
+$to1: "1200px";
+@include animation-mixin($name1,$from1,$to1,$whatToAnimate1);
+
+.translateX_P
+{
+	animation-name:expand;
+	animation-duration:4s;
+	animation-delay:0s;
+	animation-timing-function:ease-in-out;
+}
+
+$name: "translateX_M";
+$whatToAnimate: "transform: translateX";
+$from: 0;
+$to: "-1200px";
+@include animation-mixin($name,$from,$to,$whatToAnimate);
+
+.translateX_P
+{
+	animation-name:expand;
+	animation-duration:4s;
+	animation-delay:0s;
+	animation-timing-function:ease-in-out;
+}
+
+#paralax
+{
+	display: block;
+	height: 2600px;
+	width: 100%;
+	@include transformStyle-mixin($px,$type);
+}
+
+#parallax_horizontal
+{
+	display: block;
+	height: 2500px;
+	width: 100%;
+	@include transformStyle-mixin($px,$type);
+}
+
+#home
+{
+	height:400px;
+}
+
+#activity
+{
+	height:800px;
+}
+
+#certificates
+{
+	height:800px;
+}
+
+#contacts
+{
+	height:300px;
+}
+
+.frontSlides
+{
+	display: block;
+	position: #{$relpos};
+	background-color: #3333ff;
+	width: 100%;
+	background-image: url("../images/bg2.jpg");
+	background-size: cover;
+	background-attachment: fixed;
+	border: 1px groove #000;
+}
+
+.backSlides
+{
+	display: block;
+	position: #{$relpos};
+	background-image: url("../images/bg1.jpg");
+	background-attachment: fixed;
+	background-size: cover;
+	width: 100%;
+	border: 1px groove #fff;
+	@include transform-scale-mixin($translateZ,$speed,$scale);
+}
+
+.front_h
+{
+	display: block;
+	position: #{$relpos};
+	background-image: url("../images/bg3.jpg");
+	background-attachment: fixed;
+	background-size: cover;
+	height: 250px;
+	width: 100%;
+	border: 1px groove #fff;
+}
+
+.back_h
+{
+	display: block;
+	position: #{$relpos};
+	background-image: url("../images/bg4.jpg");
+	background-attachment: fixed;
+	background-size: cover;
+	height: 250px;
+	width: 100%;
+	border: 1px groove #fff;
+    @include transform-scale-mixin($translateX,"1200px","");	
+}
+
+
+.frontSlides p, .backSlides p
+{
+	text-align: justify;
+	vertical-align: middle;
+	padding: 15px;
+	margin: 20px;
+	font-size: 18px;
+	background-color: #fff;
+	opacity: 0.7;
+}
+
+.frontSlides img
+{
+	display: block;
+	width: percentage($width - 0.60);
+	height: percentage($height - 0.70);
+	padding: 5px;
+	margin: 20px;
+}
+
+.info
+{
+	display:block;
+	width: percentage($width - 0.7);
+	height: percentage($height - 0.65);
+	margin: 25px 15px;
+	border: 1px groove green;
+	clear: left;
+	float: right;
+}	
+
+.info p
+{
+	display: inline-block;
+	text-align: justify;
+	vertical-align: middle;
+	padding: 5px;
+	margin: 10px;
+	font-size: 14px;
+}
+
+.info img
+{
+	display:block;
+	width: percentage($width - 0.6);
+	height: percentage($height - 0.6);
+	padding:3px;
+	margin: 3px auto;
+}
+
+.frontSlides ul
+{
+	display: block;
+	margin: 50px;
+	padding: 20px;
+}
+
+.frontSlides ul li
+{
+	font-size: 18px;
+}
+
+.certs{
+	display: block !important;
+	width: 	220px !important;
+	height: 220px !important;
+	margin: 15px !important;
+	padding: 10px !important;
+	float: left !important;
+	clear: right !important;
+}

@@ -18,34 +18,42 @@
 @type: e("preserve-3d");
 @fontSize: e("16px");
 //==============================================================//Mixins Part//==============================================================//
-@-webkit-keyframes expand
+.animation-keyframes (@name, @from, @to, @anim-selector) 
 {
-  from { height: 0; transform: rotate(0);}
-  to   { height: 60px; transform: rotate(360deg);}
-}
-@-moz-keyframes expand 
-{
-  from { height: 0; transform: rotate(0);}
-  to   { height: 60px; transform: rotate(360deg);}
-}
-@-o-keyframes expand 
-{
-  from { height: 0; transform: rotate(0);}
-  to   { height: 60px; transform: rotate(360deg);}
-}
-@keyframes expand
-{
-  from { height: 0;  transform: rotate(0);}
-  to   { height: 60px;  transform: rotate(360deg);}
+	& when(@anim-selector){
+
+	}
+	@-webkit-keyframes @name
+	{
+	  from { extract(e(@anim-selector),1): extract(e(@from),1);}
+	  to   { extract(e(@anim-selector),1): extract(e(@to),1); rotate(360deg);}
+	}
+	
 }
 
-.expandY
+/*
+
+@-webkit-keyframes translateAnim
 {
-	animation-name:expand;
-	animation-duration:4s;
-	animation-delay:0s;
-	animation-timing-function:swing;
+  from { transform: translateX();}
+  to   { transform: translateX(0);}
 }
+@-moz-keyframes translateAnim 
+{
+  from { transform: translateX(0);}
+  to   { transform: translateX(360deg);}
+}
+@-o-keyframes translateAnim 
+{
+  from { transform: translateX(0);}
+  to   { transform: translateX(360deg);}
+}
+@keyframes translateAnim
+{
+  from { transform: translateX(0);}
+  to   { transform: translateX(360deg);}
+}*/
+
 .overflow-mixin()
 {
     -webkit-overflow-scrolling: touch;
@@ -62,11 +70,11 @@
 
 .transform-scale-mixin(@translate,@speed,@scale)
 { 
-   transform: e("@{translate}(@{speed}),scale(@{scale})");
-  -webkit-transform: e("@{translate}(@{speed}),scale(@{scale})");
-  -moz-transform: e("@{translate}(@{speed}),scale(@{scale})");
-  -o-transform: e("@{translate}(@{speed}),scale(@{scale})");
-  -ms-transform: e("@{translate}(@{speed}),scale(@{scale})");	
+   transform: e("@{translate}(@{speed}),scaleZ(@{scale})");
+  -webkit-transform: e("@{translate}(@{speed}),scaleZ(@{scale})");
+  -moz-transform: e("@{translate}(@{speed}),scaleZ(@{scale})");
+  -o-transform: e("@{translate}(@{speed}),scaleZ(@{scale})");
+  -ms-transform: e("@{translate}(@{speed}),scaleZ(@{scale})");	
 }
 .transform-mixin(@translate,@speed)
 { 
@@ -125,8 +133,8 @@ html
 
 body
 {
-	height: 250vh;
-	width: 100vw;
+	height: 2700px;
+	width: 100%;
     box-sizing: border-box;
     -webkit-overflow-scrolling: touch;
     .boxSize-mixin(@radius);
@@ -142,6 +150,12 @@ body
 {
 	display: none;
 }
+
+	@name: "expand";
+	@animation-type: "height", "transform:rotate";
+	@from: 0, 0;
+	@to: "60px","360deg";
+	.animation-keyframes(@name,@from,@to,@animation-type);
 
 @view-port
 {
@@ -163,12 +177,47 @@ body
 	}
 }
 
+.expandY
+{
+	animation-name:expand;
+	animation-duration:4s;
+	animation-delay:0s;
+	animation-timing-function:swing;
+}
+
 #paralax
 {
 	display: block;
-	height: 240vh;
-	width: 100vw;
+	height: 2600px;
+	width: 100%;
 	.transformStyle-mixin(@px,@type);
+}
+
+#parallax_horizontal
+{
+	display: block;
+	height: 2500px;
+	width: 100%;
+	.transformStyle-mixin(@px,@type);
+}
+
+#home
+{
+	height:400px;
+}
+
+#activity
+{
+	height:800px;
+}
+
+#certificates
+{
+	height:800px;
+}
+#contacts
+{
+	height:300px;
 }
 
 .frontSlides
@@ -176,8 +225,7 @@ body
 	display: block;
 	position: @relpos;
 	background-color: #3333ff;
-	height: 90vh;
-	width: 100vw;
+	width: 100%;
 	background-image: url("../images/bg2.jpg");
 	background-size: cover;
 	background-attachment: fixed;
@@ -191,11 +239,50 @@ body
 	background-image: url("../images/bg1.jpg");
 	background-attachment: fixed;
 	background-size: cover;
-	height: 90vh;
-	width: 100vw;
+	width: 100%;
 	border: 1px groove #fff;
 	.transform-scale-mixin(@translateZ,@speed,@scale);
 }
+
+.front_h:nth-child(0), .back_h:nth-child(0)
+{
+	.transform-mixin(@translateX,"-2400px");	
+	z-index: -2;
+}
+.front_h:nth-child(1), .back_h:nth-child(1)
+{
+	.transform-mixin(@translateX,"-1200px");	
+	z-index: -2;
+}
+.front_h:nth-child(4), .back_h:nth-child(4)
+{
+	.transform-mixin(@translateX,"1200px");	
+	z-index: -2;
+}
+.front_h
+{
+	display: block;
+	position: @relpos;
+	background-image: url("../images/bg3.jpg");
+	background-attachment: fixed;
+	background-size: cover;
+	height: 250px;
+	width: 100%;
+	border: 1px groove #fff;
+}
+
+.back_h
+{
+	display: block;
+	position: @relpos;
+	background-image: url("../images/bg4.jpg");
+	background-attachment: fixed;
+	background-size: cover;
+	height: 250px;
+	width: 100%;
+	border: 1px groove #fff;
+}
+
 
 .frontSlides p, .backSlides p
 {
@@ -215,14 +302,13 @@ body
 	height: percentage(@height - 0.70);
 	padding: 5px;
 	margin: 20px;
-	font-size: 18px;
 }
 
 .info
 {
 	display:block;
 	width: percentage(@width - 0.7);
-	height: percentage(@height - 0.6);
+	height: percentage(@height - 0.65);
 	margin: 25px 15px;
 	border: 1px groove green;
 	clear: left;
@@ -242,10 +328,10 @@ body
 .info img
 {
 	display:block;
-	width: percentage(@width - 0.65);
-	height: percentage(@height - 0.65);
-	padding:5px;
-	margin: 5px auto;
+	width: percentage(@width - 0.6);
+	height: percentage(@height - 0.6);
+	padding:3px;
+	margin: 3px auto;
 }
 
 .frontSlides ul
@@ -258,4 +344,14 @@ body
 .frontSlides ul li
 {
 	font-size: 18px;
+}
+
+.certs{
+	display: block !important;
+	width: 	220px !important;
+	height: 220px !important;
+	margin: 15px !important;
+	padding: 10px !important;
+	float: left !important;
+	clear: right !important;
 }
