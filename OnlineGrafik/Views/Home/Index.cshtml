@@ -1,0 +1,11 @@
+﻿<form id="record"></form>
+<table id="calendar"></table>
+<table id="grafik"></table>   
+<script>
+    $(document).ready(function () {
+        var cal = new Calendar();       
+        cal.EqualizeLength(cal.days, 0);
+        cal.GenerateHTML('#calendar');
+    });
+</script>
+

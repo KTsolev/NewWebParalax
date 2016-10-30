@@ -1,0 +1,245 @@
+﻿*
+{
+	padding: 0;
+	margin: 0;
+	font-size: 16px;
+	font-family: Verdana,Serif,Arial;
+    color:#000;
+    background-color: #fff;
+}
+body
+{
+    font-size: .85em;
+    font-family: "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    color: #232323;
+    background-color: #fff;
+}
+
+header, footer, nav, section
+{
+    display: block;
+}
+
+
+/* Styles for basic forms
+-----------------------------------------------------------*/
+fieldset
+{
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend 
+{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea 
+{
+    min-height: 75px;
+}
+
+.editor-label 
+{
+    margin: 1em 0 0 0;
+}
+
+.editor-field 
+{
+    margin: 0.5em 0 0 0;
+}
+
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error 
+{
+    color: #f00;
+}
+
+.field-validation-valid 
+{
+    display: none;
+}
+
+.input-validation-error 
+{
+    border: 1px solid #f00;
+    background-color: #fee;
+}
+
+.validation-summary-errors 
+{
+    font-weight: bold;
+    color: #f00;
+}
+
+.validation-summary-valid 
+{
+    display: none;
+}
+
+#record
+{
+    display:block;
+    position:relative;
+    border: 1px groove #00ff21;
+    width: 100%;
+    height: 100%;
+    z-index:5;
+}
+
+#calendar
+{
+    display:block;
+    position:absolute;
+    background-color: #dbdbdb;
+    z-index: 1;
+    width: 90%;
+    height: 90%;
+}
+
+#calendar tr td, #calendar tr th 
+{   
+    text-align:center;
+    vertical-align:middle;
+    border: 1px groove #808080;
+}
+
+.years,.months
+{
+
+  width:36.5%;
+  height:36.5%;
+  font-size:20px;
+  padding:20px;
+}
+
+.week,.days
+{
+  width:16.5%;
+  height:16.5%;
+  font-size:18px;
+  padding:20px;
+}
+
+.years, .months, .week, #prev_year, #next_year, #prev_month, #next_month {
+  background-color: #4c000e;
+  color: #fff;
+}
+
+.days 
+{
+  background-color: #4c4b4b;
+  color: #ffc300;
+}
+
+.days:hover, #next_month:hover, #next_year:hover, #prev_year:hover, #prev_month:hover 
+{
+  background-color: #a34c00;
+  color: #fff;               
+}
+
+.other 
+{
+  background-color: #353535;
+  color: #a37d00;
+}
+
+.weekend
+{
+  background-color: #472c31;
+  color: #a37d00;
+}
+
+#today 
+{
+  background-color: #d66f08;
+  color: #fff;               
+}
+
+#grafik,#record 
+{
+    display:block;
+    position:relative;
+    width:100%;
+    height:100%;
+    z-index:2;
+}
+
+#grafik tr th
+{
+    color:#dbdbdb;
+    background-color:#047afa;
+    text-align:center;
+    vertical-align:middle;
+    font-size:18px;
+    padding:10px;
+}
+
+#grafik tr td 
+{
+    color:#dbdbdb;
+    background-color:#00b72b;
+    text-align:center;
+    vertical-align:middle;
+    font-size:16px;
+    padding:12px;
+}
+
+#record input[type=text] 
+{
+    color:#00b72b;
+    background-color:#fee;
+    text-align:center;
+    vertical-align:middle;
+    font-size:16px;
+    padding:12px;
+}
+
+#record input[type=button]
+{
+    color:#fee;
+    background-color:#0c3ddd;
+    font-size:16px;
+    padding:12px;
+}
+
+
+#grafik tr input
+{
+    color:#dbdbdb;
+    background-color:#079ef6;
+    font-size:16px;
+    padding:12px;
+}
+
+#grafik tr input:hover 
+{
+   background-color:#e24c00;
+}
+@-webkit-keyframes animationOpacity { from { opacity: 0; } to { opacity: 1; }}
+@-moz-keyframes animationOpacity { from { opacity: 0; } to { opacity: 1; }}
+@-o-keyframes animationOpacity { from { opacity: 0; } to { opacity: 1; }}
+@-ms-keyframes animationOpacity { from { opacity: 0; } to { opacity: 1; }}
+@keyframes animationOpacity { from { opacity: 0; } to { opacity: 1; }}
+
+.animateOpacity {
+  animation-name: animationOpacity;
+  animation-duration: 2s;
+  animation-delay: 0s;
+  animation-timing-function: ease-in-out; }
+
+@-webkit-keyframes animationOpacityBackwards { from { opacity: 1; } to { opacity: 0; }}
+@-moz-keyframes animationOpacityBackwards { from { opacity: 1; } to { opacity: 0; }}
+@-o-keyframes animationOpacityBackwards { from { opacity: 1; } to { opacity: 0; }}
+@-ms-keyframes animationOpacityBackwards { from { opacity: 1; } to { opacity: 0; }}
+@keyframes animationOpacityBackwards { from { opacity: 1; } to { opacity: 0; }}
+
+.animateOpacityBackwards {
+  animation-name: animationOpacityBackwards;
+  animation-duration: 2s;
+  animation-delay: 0s;
+  animation-timing-function: ease-out; }
