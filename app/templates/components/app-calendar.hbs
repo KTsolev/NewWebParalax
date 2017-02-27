@@ -1,0 +1,8 @@
+<h4>{{monthLabel}}</h4>
+<h4>{{yearLabel}}</h4>
+{{#each calendar as |week|}}
+  {{#each week as |day|}}
+      <p>{{format-date day}}</p>
+  {{/each}}
+  <br/>
+{{/each}}
